@@ -98,7 +98,9 @@ def ask_questions():
     additional_info = request.json.get('additional_info', '')
     follow_up_question = ask_additional_questions(user_data, additional_info)
     return jsonify({'question': follow_up_question})
+    
 
-# Main block to run the app
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
+
